@@ -5,9 +5,12 @@ import (
 )
 
 func main() {
-	card := newCard()
-	fmt.Println("Hello World!")
-	fmt.Println(card)
+	cards := deck{newCard(), newCard()}
+	cards = append(cards, "Six of Spades")
+
+	for i, card := range cards {
+		fmt.Println(i, card)
+	}
 }
 
 func newCard() string {
