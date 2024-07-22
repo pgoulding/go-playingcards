@@ -5,5 +5,12 @@ import (
 )
 
 func main() {
+	card := newCard()
 	fmt.Println("Hello World!")
+	fmt.Println(card)
+}
+
+func newCard() string {
+
+	return "Five of Diamonds"
 }
