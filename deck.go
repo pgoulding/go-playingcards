@@ -26,3 +26,14 @@ func (d deck) print() {
 		fmt.Println(card)
 	}
 }
+
+// deal(d deck, handSize)
+// d = this deck
+// deck = type of
+// handSize = passed in value of int type
+// (deck, deck)
+// returns two values of type deck
+func deal(d deck, handSize int) (deck, deck) {
+
+	return d[:handSize], d[handSize:]
+}
