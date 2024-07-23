@@ -1,6 +1,6 @@
 package main
 
-//import "fmt"
+import "fmt"
 
 // newDeck -> Creates and Returns a list of playing cards
 // print -> log the contents of a deck of cards
@@ -12,11 +12,5 @@ package main
 func main() {
 	cards := newDeck()
 
-	hand, remainingCards := deal(cards, 5)
-
-	//fmt.Println("\nFirst Hand:")
-	hand.print()
-	//fmt.Println("\nNext Hand:")
-	remainingCards.print()
-
+	fmt.Println(cards.toString())
 }
