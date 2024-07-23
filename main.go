@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // newDeck -> Creates and Returns a list of playing cards
 // print -> log the contents of a deck of cards
 // shuffle -> shuffles all the cards in a deck
@@ -11,6 +9,5 @@ import "fmt"
 
 func main() {
 	cards := newDeck()
-
-	fmt.Println(cards.toString())
+	cards.saveToFile("my_cards")
 }
