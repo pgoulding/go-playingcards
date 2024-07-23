@@ -8,6 +8,6 @@ package main
 // newDeckFromFile -> Load a list of cards from the local machine.
 
 func main() {
-	cards := newDeck()
-	cards.saveToFile("my_cards")
+	cards := newDeckFromFile("my_cards")
+	cards.print()
 }
