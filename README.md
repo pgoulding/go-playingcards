@@ -42,33 +42,39 @@ go test ./...
 
 Here are some examples of how to use the different functionalities in this project:
 
-### Creating a Deck
+## Menu
 
-```go
-deck := NewDeck()
+Upon starting the program you should be shown a list of Options that yuou can select by entering a numerical menu option:
+
+```bash
+--- Playing Cards Menu ---
+1. Create a new deck
+2. Shuffle the deck
+3. Deal a hand
+4. Save deck to file
+5. Show Remaining Cards
+6. Quit
 ```
 
-### Shuffling the Deck
+### 1. Create a new deck
 
-```go
-deck.Shuffle()
-```
+This creates a brand new unshuffled deck.
 
-### Drawing Cards
+### 2. Shuffle the deck
 
-```go
-card, err := deck.Draw()
-if err != nil {
-    log.Fatalf("Error drawing card: %v", err)
-}
-fmt.Println("Drew card:", card)
-```
+This takes the exsiting deck and shuffles the cards in a random order.
 
-### Resetting the Deck
+### 3. Deal a hand
 
-```go
-deck.Reset()
-```
+This takes out 5 cards from the deck and shows them to you.
+
+### 4. Save deck to file
+
+This saves the existing deck to a "_deckfile" file.
+
+### 5. Show remaining cards
+
+This shows the remaining cards in the deck.
 
 ## Contributing
 
