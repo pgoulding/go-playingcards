@@ -39,7 +39,7 @@ func (d deck) print() {
 // handSize = passed in argument of int type
 // (deck, deck)
 // returns two values of type deck
-func deal(d deck, handSize int) (deck, deck) {
+func (d deck) deal(handSize int) (deck, deck) {
 
 	return d[:handSize], d[handSize:]
 }
