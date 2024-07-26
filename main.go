@@ -44,7 +44,7 @@ func main() {
 		switch choice {
 		case 1:
 			fmt.Println("Creating new deck")
-			cards := newDeck()
+			cards = newDeck()
 			fmt.Printf("Created deck with a length of %v cards", len(cards))
 		case 2:
 			fmt.Println("Shuffling the deck...")
@@ -52,13 +52,20 @@ func main() {
 			fmt.Println("Deck has been shuffled")
 		case 3:
 			fmt.Println("Deal a hand...")
-			hand, _ := cards.deal(5)
-			fmt.Println(hand)
+			if len(cards) >= 5 {
+				hand, newCards := deal(cards, 5)
+				cards = newCards
+				fmt.Println(hand)
+			} else {
+				fmt.Println("Not engouh cards left to deal, try creating a new deck...")
+			}
+
 		case 4:
 			fmt.Println("Save deck to file...")
 			cards.saveToFile("_deckfile")
 		case 5:
 			fmt.Println("Showing remaining cards in the deck...")
+			fmt.Printf("There are %v cards left in deck", len(cards))
 			cards.print()
 		case 6:
 			fmt.Println("Quitting the program...")

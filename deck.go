@@ -39,7 +39,7 @@ func (d deck) print() {
 // handSize = passed in argument of int type
 // (deck, deck)
 // returns two values of type deck
-func (d deck) deal(handSize int) (deck, deck) {
+func deal(d deck, handSize int) (deck, deck) {
 
 	return d[:handSize], d[handSize:]
 }
@@ -56,10 +56,8 @@ func (d deck) saveToFile(fileName string) error {
 func newDeckFromFile(fileName string) deck {
 	bs, err := os.ReadFile(fileName)
 	if err != nil {
-		// opt #1 - log error and return a call to the new deck
+		// log error and return a call to the new deck
 		fmt.Println("Error: ", err)
-		// return newDeck()
-		// opt #2 - log the error and quit the program
 		os.Exit(1)
 	}
 
