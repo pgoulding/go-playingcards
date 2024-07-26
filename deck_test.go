@@ -16,7 +16,7 @@ func TestNewDeck(t *testing.T) {
 
 	//write an if statement to see if the first card in deck is correct
 	if d[0] != "Ace of Spades" {
-		t.Errorf("Expected first card of Ace of SPades, but got %v", d[0])
+		t.Errorf("Expected first card of Ace of Spades, but got %v", d[0])
 	}
 
 	// write an if statement to check last element in deck
