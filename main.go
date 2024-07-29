@@ -55,17 +55,17 @@ func main() {
 			if len(cards) >= 5 {
 				hand, newCards := deal(cards, 5)
 				cards = newCards
-				fmt.Println(hand)
+				fmt.Printf("%+v\n", hand)
 			} else {
 				fmt.Println("Not engouh cards left to deal, try creating a new deck...")
 			}
 
 		case 4:
 			fmt.Println("Save deck to file...")
-			cards.saveToFile("_deckfile")
+			// cards.saveToFile("_deckfile")
 		case 5:
 			fmt.Println("Showing remaining cards in the deck...")
-			fmt.Printf("There are %v cards left in deck", len(cards))
+			fmt.Printf("There are %v cards left in deck...\n", len(cards))
 			cards.print()
 		case 6:
 			fmt.Println("Quitting the program...")

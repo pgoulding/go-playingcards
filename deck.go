@@ -3,12 +3,28 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"os"
-	"strings"
 	"time"
 )
 
-type deck []string
+type deck []card
+
+type card struct {
+	name string
+	suit string
+	val  int
+}
+
+func newCard(name string, suit string, val int) card {
+
+	singleCard := card{
+		name,
+		suit,
+		val,
+	}
+	fmt.Printf("%+v\n", singleCard)
+
+	return singleCard
+}
 
 //d is reference to 'self'
 
@@ -18,8 +34,10 @@ func newDeck() deck {
 	cardValues := []string{"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"}
 	// _ specifiies an unused variable
 	for _, suit := range cardSuits {
-		for _, value := range cardValues {
-			cards = append(cards, value+" of "+suit)
+		for i, name := range cardValues {
+			displayName := fmt.Sprintf("%v of %v", name, suit)
+			playingCard := newCard(displayName, suit, i+1)
+			cards = append(cards, playingCard)
 		}
 	}
 
@@ -29,7 +47,7 @@ func newDeck() deck {
 
 func (d deck) print() {
 	for _, card := range d {
-		fmt.Println(card)
+		fmt.Printf("%+v\n", card)
 	}
 }
 
@@ -44,26 +62,26 @@ func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
 }
 
-func (d deck) toString() string {
+// func (d deck) toString() string {
 
-	return strings.Join([]string(d), ",")
-}
+// 	return strings.Join([]string(d), ",")
+// }
 
-func (d deck) saveToFile(fileName string) error {
-	return os.WriteFile(fileName, []byte(d.toString()), 0666)
-}
+// func (d deck) saveToFile(fileName string) error {
+// 	return os.WriteFile(fileName, []byte(d.toString()), 0666)
+// }
 
-func newDeckFromFile(fileName string) deck {
-	bs, err := os.ReadFile(fileName)
-	if err != nil {
-		// log error and return a call to the new deck
-		fmt.Println("Error: ", err)
-		os.Exit(1)
-	}
+// func newDeckFromFile(fileName string) deck {
+// 	bs, err := os.ReadFile(fileName)
+// 	if err != nil {
+// 		// log error and return a call to the new deck
+// 		fmt.Println("Error: ", err)
+// 		os.Exit(1)
+// 	}
 
-	s := strings.Split(string(bs), ",")
-	return deck(s)
-}
+// 	s := strings.Split(string(bs), ",")
+// 	return deck(s)
+// }
 
 //shuffle logic
 // for each index. card in cards
